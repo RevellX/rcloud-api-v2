@@ -13,9 +13,9 @@ app.use(cors()); // Enable CORS for all origins
 app.use(express.json());
 
 // Routes
-app.use("/api/v1/duties", dutyRoutes);
-app.use("/api/v1/dutyTypes", dutyTypeRoutes);
-app.use("/api/v1/dutyWorkers", dutyWorkerRoutes);
+app.use("/v1/duties", dutyRoutes);
+app.use("/v1/dutyTypes", dutyTypeRoutes);
+app.use("/v1/dutyWorkers", dutyWorkerRoutes);
 
 // Global error handler (must be last middleware)
 app.use(errorHandler);
