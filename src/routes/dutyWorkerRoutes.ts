@@ -2,13 +2,29 @@
 
 import { Router } from "express";
 import { dutyWorkerController } from "../controllers/dutyWorkersController";
+import { authorize, requirePermission } from "../middlewares/auth";
 
 const router = Router();
 
 router.get("/", dutyWorkerController.getAllDutyWorkers);
 router.get("/:id", dutyWorkerController.getDutyWorkerById);
-router.post("/", dutyWorkerController.createDutyWorker);
-router.put("/:id", dutyWorkerController.updateDutyWorker);
-router.delete("/:id", dutyWorkerController.deleteDutyWorker);
+router.post(
+  "/",
+  authorize,
+  requirePermission("dutyWorkers.add"),
+  dutyWorkerController.createDutyWorker
+);
+router.put(
+  "/:id",
+  authorize,
+  requirePermission("dutyWorkers.edit"),
+  dutyWorkerController.updateDutyWorker
+);
+router.delete(
+  "/:id",
+  authorize,
+  requirePermission("dutyWorkers.remove"),
+  dutyWorkerController.deleteDutyWorker
+);
 
 export default router;

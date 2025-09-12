@@ -2,13 +2,29 @@
 
 import { Router } from "express";
 import { dutyTypeController } from "../controllers/dutyTypeController";
+import { authorize, requirePermission } from "../middlewares/auth";
 
 const router = Router();
 
 router.get("/", dutyTypeController.getAllDutyTypes);
 router.get("/:id", dutyTypeController.getDutyTypeById);
-router.post("/", dutyTypeController.createDutyType);
-router.put("/:id", dutyTypeController.updateDutyType);
-router.delete("/:id", dutyTypeController.deleteDutyType);
+router.post(
+  "/",
+  authorize,
+  requirePermission("dutyTypes.add"),
+  dutyTypeController.createDutyType
+);
+router.put(
+  "/:id",
+  authorize,
+  requirePermission("dutyTypes.edit"),
+  dutyTypeController.updateDutyType
+);
+router.delete(
+  "/:id",
+  authorize,
+  requirePermission("dutyTypes.remove"),
+  dutyTypeController.deleteDutyType
+);
 
 export default router;

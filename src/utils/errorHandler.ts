@@ -11,6 +11,6 @@ export const errorHandler = (
   console.error(err.stack); // Log the error stack for debugging
   res.status(500).json({
     error: "Internal server error",
-    details: err.message || "An unexpected error occurred.",
+    // details: err.message || "An unexpected error occurred.",
   });
 };
