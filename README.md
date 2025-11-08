@@ -1,6 +1,6 @@
 # 🌐 REST API with TypeScript
 
-This is a simple and modular RESTful API built with **TypeScript** and **Express.js** . It improved version of my other project, but offers only fraction of its functionality
+This is a simple and modular RESTful API built with **TypeScript** and **Express.js** . It improved version of my other project, but offers only fraction of its functionality. For sake of simplicity, data is stored in json files.
 
 ---
 
@@ -18,8 +18,6 @@ This is a simple and modular RESTful API built with **TypeScript** and **Express
 
 - Node.js
 - Express.js
-- Sequelize
-- Mysql | InnoDB
 - dotenv for environment variables
 - nodemon for development
 
@@ -47,11 +45,6 @@ Create a `.env` file in the root directory:
 PORT=5000
 JWT_SECRET="your_jwt_secret_here"
 TOKEN_EXPIRE="7d"
-
-DB_HOST="db_hostname"
-DB_USER="db_username"
-DB_PASSWORD="db_password"
-DB_DATABASE="db_database_name"
 ```
 
 ### ▶️ Run the Server
