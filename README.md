@@ -50,7 +50,7 @@ TOKEN_EXPIRE="7d"
 ### ▶️ Run the Server
 
 ```bash
-node src/app.ts
+npm start
 ```
 
 ### API Endpoints
